@@ -1,0 +1,13 @@
+## 🧬 Project Description
+
+Antimicrobial Resistance (AMR) and the rapid emergence of novel bacterial pathogens represent one of the most critical challenges to global public health. Traditional prokaryotic gene-prediction tools rely on rigid, heuristic algorithms that search for standard, clean Open Reading Frames (ORFs). However, when pathogens mutate to survive antibiotic exposure, their genomes often undergo frameshifts, alternative start-codon selections, and pseudogenization. Standard workflows routinely drop these highly critical variant sequences as "non-coding junk noise," leaving a dangerous blind spot in clinical biodefense.
+
+**AMR-Agent** is an entirely autonomous, spec-driven computational pipeline built inside the **Google Antigravity 2.0 IDE** framework. Operating on the principles of file-based context engineering and the Model Context Protocol (MCP), the agent acts as an automated genomic investigator to bridge the gap between raw genomic sequence data and structural drug interaction analytics.
+
+### How the Pipeline Works:
+1. **6-Frame Variant Isolation:** The pipeline reads raw, unannotated prokaryotic DNA fasta records and performs a full six-frame window translation (3 forward frames, 3 reverse frames) to capture all theoretical translation possibilities.
+2. **Reference Proteome Subtraction:** It compares the output matrix against a high-fidelity reference database (such as *Escherichia coli* K-12 MG1655). Identical sequences are logged and terminated, while novel inserts and mutated partial matches are pushed forward.
+3. **Machine Learning Noise Filtering:** It extracts structural sequence metrics (amino acid distribution, length, GC content) and processes them through an integrated XGBoost classifier to distinguish functional sequences from random frame noise. It embeds specific heuristics to flag and preserve truncated pseudogenes caused by frameshifts.
+4. **Structural AI & High-Throughput Docking:** Approved novel or variant target proteins are automatically dispatched to the ESMFold API to generate 3D atomic structures (`.pdb` coordinate files). The agent then runs an automated command-line subprocess to dock these structures against a chemical library of generic antibiotics (using SMILES strings) to output binding affinity matrices (`docking_affinity_matrix.csv`).
+
+By shifting security left and embedding automated STRIDE threat mitigation boundaries, this project demonstrates how an autonomous software workforce can compress pathogen evaluation timelines from weeks of wet-lab cultivation down to under a single minute of agentic computation.
