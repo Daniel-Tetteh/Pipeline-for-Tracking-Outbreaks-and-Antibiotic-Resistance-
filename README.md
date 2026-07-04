@@ -43,4 +43,26 @@ amr-antigravity-pipeline/
 ```
 
 ---
+## 🛠️ Local Installation & Setup Instructions
 
+Execute these terminal instructions inside your workspace to reproduce the sandbox environment and run the pipeline locally:
+
+### 1. Clone the Repository
+```bash
+git clone https://github.comYOUR_GITHUB_USERNAME/amr-antigravity-pipeline.git
+cd amr-antigravity-pipeline
+```
+
+### 2. Configure Your Virtual Environment
+Create a virtual python isolation sandbox and install the system dependencies:
+```bash
+python -m venv amr_env
+source amr_env/bin/activate  # On Windows: amr_env\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 3. Run the Sandbox Simulation Pipeline
+Run the entry point application to execute the full translation, filtering, and docking analysis loop against the provided sample fasta genome file:
+```bash
+python app.py
+```
